@@ -1,6 +1,36 @@
-FluentChat 🚀
-AI-Powered Multilingual Chat Normalization System
+# FluentChat Backend
 
-FluentChat is a real-time chat application that allows users to communicate in their preferred language while automatically converting messages into fluent, grammatically correct English before they are delivered to other participants.
+This is the backend repository for **FluentChat**, built using FastAPI, MongoDB Atlas, Motor, and WebSockets.
 
-The system supports multilingual and code-mixed text (Gujarati, Hindi, Hinglish, etc.) and uses Transformer-based NLP models for translation and grammar correction.
+## Project Structure
+
+```text
+backend/
+│
+├── app/
+│   ├── main.py          # FastAPI application entry point & routes
+│   ├── database.py      # Async MongoDB Atlas connection (Motor)
+│   ├── config.py        # Application configuration & env loading
+│   ├── models/          # Pydantic schemas and database models
+│   ├── routes/          # API endpoints
+│   ├── websocket/       # WebSocket handlers and connection manager
+│   └── services/        # Business logic services
+│
+├── .env                 # Environment variables (secret credentials)
+├── requirements.txt     # Backend dependencies
+└── README.md            # Project documentation
+```
+
+## Getting Started
+
+1. Install Python dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+2. Create a `.env` file (based on `.env` in this directory) and update the `MONGODB_URL` with your MongoDB Atlas URI.
+
+3. Run the development server:
+   ```bash
+   uvicorn app.main:app --reload
+   ```
